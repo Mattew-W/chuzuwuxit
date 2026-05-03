@@ -51,9 +51,9 @@ export default function App() {
         </div>
       </header>
 
-      {/* 统计大横幅 */}
+      {/* 统计大横幅 — 蓝色系 */}
       <div className="px-4 mb-4 lg:max-w-[960px] lg:mx-auto">
-        <div className="bg-gradient-to-br from-[#e86a3a] to-[#c85830] rounded-xl p-4 text-white shadow-sm">
+        <div className="bg-gradient-to-br from-[#2563eb] to-[#1d4ed8] rounded-xl p-4 text-white shadow-sm">
           <div className="text-sm opacity-90 mb-1">本月总应收 · {totals.activeCount}/{totals.totalCount}户</div>
           <div className="text-3xl font-bold tracking-tight mb-3">{totals.grandTotal.toLocaleString()}</div>
           <div className="flex justify-between text-xs bg-black/10 p-2 rounded-lg backdrop-blur-sm">
@@ -69,7 +69,7 @@ export default function App() {
         {rooms.length === 0 ? (
           <div className="text-center py-24">
             <div className="text-sm text-[#888] mb-4">还没有房间数据</div>
-            <button onClick={addRoom} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#e86a3a] text-white rounded-full text-sm font-semibold active:scale-95">
+            <button onClick={addRoom} className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#2563eb] text-white rounded-full text-sm font-semibold active:scale-95">
               ＋ 添加房间
             </button>
           </div>
@@ -88,7 +88,7 @@ export default function App() {
 
       {/* 悬浮添加按钮 */}
       {rooms.length > 0 && (
-        <button onClick={addRoom} className="fixed bottom-6 right-5 w-14 h-14 bg-[#e86a3a] text-white rounded-full flex items-center justify-center text-3xl shadow-lg active:scale-90 transition-all z-20">
+        <button onClick={addRoom} className="fixed bottom-6 right-5 w-14 h-14 bg-[#2563eb] text-white rounded-full flex items-center justify-center text-3xl shadow-lg active:scale-90 transition-all z-20">
           ＋
         </button>
       )}

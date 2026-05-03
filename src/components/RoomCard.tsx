@@ -53,7 +53,7 @@ export function RoomCard({ room, onUpdate, onDelete, onPreview }: Props) {
           <div className="text-[#2563eb]">{room.waterNow}</div>
           <div className="text-[#2563eb]">{room.waterLast}</div>
           <div className="text-[#2563eb] font-bold">{room.waterUsage}</div>
-          <div className="text-[#c85830] font-bold text-sm">{room.total}</div>
+          <div className="text-[#2563eb] font-bold text-sm">{room.total}</div>
         </div>
 
         {/* 细则与操作行 */}
@@ -66,7 +66,7 @@ export function RoomCard({ room, onUpdate, onDelete, onPreview }: Props) {
           {room.remarks && <span className="truncate max-w-[60px]">备:{room.remarks}</span>}
           <button
             onClick={() => onPreview(room)}
-            className="ml-auto bg-gradient-to-r from-[#e86a3a] to-[#c85830] text-white px-3 py-1 rounded-full font-medium"
+            className="ml-auto bg-gradient-to-r from-[#2563eb] to-[#1d4ed8] text-white px-3 py-1 rounded-full font-medium"
           >结算单</button>
         </div>
       </div>
@@ -83,10 +83,10 @@ function EditCard({ room, onUpdate, onClose }: { room: RoomCalc; onUpdate: Props
   ]
 
   return (
-    <div className="bg-white rounded-lg mb-3 mx-4 sm:mx-6 lg:max-w-[960px] lg:mx-auto overflow-hidden border-2 border-[#e86a3a]">
-      <div className="flex justify-between items-center px-3 py-2 bg-[#fff5f0]">
-        <span className="text-sm font-semibold text-[#e86a3a]">编辑 {room.name}</span>
-        <button onClick={onClose} className="px-3 py-1 bg-[#e86a3a] text-white rounded-full text-xs font-semibold">完成</button>
+    <div className="bg-white rounded-lg mb-3 mx-4 sm:mx-6 lg:max-w-[960px] lg:mx-auto overflow-hidden border-2 border-[#2563eb]">
+      <div className="flex justify-between items-center px-3 py-2 bg-[#eff6ff]">
+        <span className="text-sm font-semibold text-[#2563eb]">编辑 {room.name}</span>
+        <button onClick={onClose} className="px-3 py-1 bg-[#2563eb] text-white rounded-full text-xs font-semibold">完成</button>
       </div>
       <div className="p-3 grid grid-cols-4 gap-2">
         {fields.map(([label, field, type]) => (
@@ -99,7 +99,7 @@ function EditCard({ room, onUpdate, onClose }: { room: RoomCalc; onUpdate: Props
                 const v = type === 'number' ? Number(e.target.value) : e.target.value
                 onUpdate(room.name, field, v)
               }}
-              className="w-full px-2 py-1.5 rounded text-xs border border-gray-200 focus:outline-none focus:border-[#e86a3a]"
+              className="w-full px-2 py-1.5 rounded text-xs border border-gray-200 focus:outline-none focus:border-[#2563eb]"
               inputMode={type === 'number' ? 'decimal' : 'text'}
             />
           </div>

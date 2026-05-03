@@ -1,47 +1,41 @@
 import { useState, useEffect } from 'react'
-import { BsXLg, BsClock } from 'react-icons/bs'
 import { getAllSnapshots } from '../lib/db'
 import type { MonthSnapshot } from '../types'
 
-interface HistoryModalProps {
+interface Props {
   currentYear: number
   currentMonth: number
   onLoad: (year: number, month: number) => void
   onClose: () => void
 }
 
-export function HistoryModal({ currentYear, currentMonth, onLoad, onClose }: HistoryModalProps) {
+export function HistoryModal({ currentYear, currentMonth, onLoad, onClose }: Props) {
   const [snapshots, setSnapshots] = useState<MonthSnapshot[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     (async () => {
-      const snaps = await getAllSnapshots()
-      setSnapshots(snaps)
+      const s = await getAllSnapshots()
+      setSnapshots(s)
       setLoading(false)
     })()
   }, [])
 
-  const monthNames = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
-
   return (
-    <div className="fixed inset-0 z-40 flex flex-col bg-[var(--app-bg)] safe-top animate-fade-in">
-      <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--border)] bg-[var(--card-bg)]">
-        <button onClick={onClose} className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100">
-          <BsXLg size={18} />
-        </button>
-        <span className="text-sm font-semibold">历史快照</span>
-        <div className="w-9" />
+    <div className="fixed inset-0 z-50 bg-[#f5f3f0] safe-top safe-bottom overflow-auto">
+      <div className="sticky top-0 z-10 bg-[#f5f3f0] px-4 py-3 border-b border-gray-200 flex items-center justify-between">
+        <button onClick={onClose} className="text-2xl text-[#888]">×</button>
+        <span className="text-base font-semibold">历史快照</span>
+        <div className="w-6" />
       </div>
 
-      <div className="flex-1 overflow-auto px-4 py-4">
+      <div className="p-4 max-w-[480px] mx-auto">
         {loading ? (
-          <div className="text-center py-12 text-[var(--text-hint)] text-sm">加载中...</div>
+          <div className="text-center py-12 text-sm text-[#888]">加载中...</div>
         ) : snapshots.length === 0 ? (
-          <div className="text-center py-12">
-            <div className="text-4xl mb-3 opacity-30"><BsClock size={48} className="mx-auto" /></div>
-            <div className="text-sm text-[var(--text-hint)]">暂无历史快照</div>
-            <div className="text-xs text-[var(--text-hint)] mt-1">每月结转时会自动保存</div>
+          <div className="text-center py-16">
+            <div className="text-sm text-[#888] mb-1">暂无历史快照</div>
+            <div className="text-xs text-[#aaa]">每月结转时会自动保存</div>
           </div>
         ) : (
           <div className="space-y-2">
@@ -52,28 +46,24 @@ export function HistoryModal({ currentYear, currentMonth, onLoad, onClose }: His
                 const w = Math.max(0, r.waterNow - r.waterLast) * snap.waterPrice
                 return sum + r.rent + e + w + r.hygiene + r.network
               }, 0)
+              const months = ['','1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
 
               return (
                 <div
                   key={`${snap.year}-${snap.month}`}
-                  onClick={() => !isCurrent && onLoad(snap.year, snap.month)}
-                  className={`card p-4 flex items-center justify-between cursor-pointer hover:scale-[1.01] active:scale-95 transition-all ${isCurrent ? 'opacity-50' : ''}`}
+                  onClick={() => { if (!isCurrent) { onLoad(snap.year, snap.month); onClose() } }}
+                  className={`bg-white rounded-xl p-4 border border-gray-200 flex items-center justify-between cursor-pointer hover:border-[#2563eb] active:scale-[0.98] transition-all ${isCurrent ? 'opacity-40' : ''}`}
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#faf5f2] flex items-center justify-center">
-                      <BsClock size={16} className="text-[#e86a3a]" />
+                  <div>
+                    <div className="text-sm font-semibold">
+                      {snap.year}年{months[snap.month]}
+                      {isCurrent && <span className="text-xs text-[#888] ml-1">(当前)</span>}
                     </div>
-                    <div>
-                      <div className="text-sm font-semibold">
-                        {snap.year}年{monthNames[snap.month - 1]}
-                        {isCurrent && <span className="text-[11px] text-[var(--text-hint)] ml-1">当前</span>}
-                      </div>
-                      <div className="text-[11px] text-[var(--text-sub)]">
-                        {snap.rooms.length} 间 · {new Date(snap.createdAt).toLocaleDateString('zh-CN')}
-                      </div>
+                    <div className="text-[11px] text-[#888]">
+                      {snap.rooms.length} 间 · {new Date(snap.createdAt).toLocaleDateString('zh-CN')}
                     </div>
                   </div>
-                  <div className="text-base font-bold text-[#e86a3a]">¥{total.toFixed(2)}</div>
+                  <div className="text-lg font-bold text-[#c85830]">{total.toFixed(0)}</div>
                 </div>
               )
             })}

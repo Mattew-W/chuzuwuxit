@@ -29,7 +29,7 @@ export function getReceiptHTML(
     overflow: hidden;
   }
   .head {
-    background: linear-gradient(135deg, #e86a3a 0%, #d4582c 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
     color: #fff;
     padding: 28px 32px;
     text-align: center;
@@ -39,10 +39,10 @@ export function getReceiptHTML(
   .body { padding: 24px 32px 32px; }
   .section-title {
     font-size: 15px; font-weight: 600;
-    color: #e86a3a;
+    color: #2563eb;
     margin: 20px 0 12px;
     padding-left: 10px;
-    border-left: 3px solid #e86a3a;
+    border-left: 3px solid #2563eb;
   }
   .section-title:first-child { margin-top: 0; }
   .row {
@@ -53,14 +53,14 @@ export function getReceiptHTML(
   .row:last-child { border-bottom: none; }
   .label { width: 120px; font-size: 14px; color: #888; }
   .value { flex: 1; font-size: 15px; color: #1a1a1a; text-align: right; }
-  .highlight { color: #e86a3a; font-weight: 600; font-size: 16px; }
+  .highlight { color: #2563eb; font-weight: 600; font-size: 16px; }
   .divider {
     height: 1px; background: #e8e4e0;
     margin: 20px 0;
   }
   .total-line {
     display: flex; align-items: center;
-    background: #fff8f5;
+    background: #eff6ff;
     border-radius: 10px;
     padding: 16px 20px;
     margin-top: 8px;
@@ -69,7 +69,7 @@ export function getReceiptHTML(
   .total-amount {
     flex: 1; text-align: right;
     font-size: 28px; font-weight: 700;
-    color: #e86a3a;
+    color: #2563eb;
     letter-spacing: -0.5px;
   }
   .footer {
@@ -80,8 +80,8 @@ export function getReceiptHTML(
   }
   .badge {
     display: inline-block;
-    background: #e86a3a10;
-    color: #e86a3a;
+    background: #2563eb10;  /* keep orange hint for badge */
+    color: #2563eb;
     padding: 2px 10px;
     border-radius: 100px;
     font-size: 12px;
