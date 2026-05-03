@@ -43,6 +43,15 @@ export interface CalcResult {
   total: number
 }
 
+/* ---- 房间 + 计算结果 (合并类型) ---- */
+export interface RoomCalc extends Room {
+  elecUsage: number
+  elecAmount: number
+  waterUsage: number
+  waterAmount: number
+  total: number
+}
+
 /* ---- 年份统计 ---- */
 export interface YearStat {
   year: number

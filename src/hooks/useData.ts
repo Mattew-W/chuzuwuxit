@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import type { Room, AppSettings } from '../types'
 import { getRooms, bulkSaveRooms, getSettings, saveSettings as dbSaveSettings, getSnapshot, saveSnapshot } from '../lib/db'
-import { calcMonthTotal, carryOverRooms } from '../lib/calculator'
+import { calcMonthTotal, carryOverRooms, calcAllRooms } from '../lib/calculator'
 import { seedRooms } from '../lib/seed'
+import { useMemo } from 'react'
 
 export function useData() {
   const [rooms, setRooms] = useState<Room[]>([])
@@ -36,6 +37,7 @@ export function useData() {
   }, [])
 
   const totals = calcMonthTotal(rooms, settings.elecPrice, settings.waterPrice)
+  const calcRooms = useMemo(() => calcAllRooms(rooms, settings.elecPrice, settings.waterPrice), [rooms, settings.elecPrice, settings.waterPrice])
 
   const updateRoom = useCallback(async (name: string, field: keyof Room, value: number | string) => {
     setRooms((prev) =>
@@ -142,7 +144,7 @@ export function useData() {
   }, [])
 
   return {
-    rooms, settings, year, month, totals,
+    rooms, calcRooms, settings, year, month, totals,
     loading, toast,
     updateRoom, saveAll, addRoom, removeRoom,
     updateSettings, carryOver, loadMonth,

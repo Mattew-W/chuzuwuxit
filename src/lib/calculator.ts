@@ -1,4 +1,4 @@
-import type { Room, CalcResult } from '../types'
+import type { Room, CalcResult, RoomCalc } from '../types'
 
 export function calcRoom(room: Room, elecPrice: number, waterPrice: number): CalcResult {
   const elecUsage = Math.max(0, room.elecNow - room.elecLast)
@@ -7,6 +7,14 @@ export function calcRoom(room: Room, elecPrice: number, waterPrice: number): Cal
   const waterAmount = +(waterUsage * waterPrice).toFixed(2)
   const total = +(room.rent + elecAmount + waterAmount + room.hygiene + room.network).toFixed(2)
   return { elecUsage, elecAmount, waterUsage, waterAmount, total }
+}
+
+/* 批量计算，返回 RoomCalc[] */
+export function calcAllRooms(rooms: Room[], elecPrice: number, waterPrice: number): RoomCalc[] {
+  return rooms.map((room) => {
+    const c = calcRoom(room, elecPrice, waterPrice)
+    return { ...room, ...c }
+  })
 }
 
 export function calcMonthTotal(rooms: Room[], elecPrice: number, waterPrice: number) {
