@@ -1,5 +1,5 @@
 {
-  "name": "收租管理系统",
+  "name": "rental-manager",
   "private": true,
   "version": "1.0.0",
   "description": "出租屋收租管理系统",
@@ -26,6 +26,7 @@
       "public/**/*"
     ],
     "win": {
+      "signAndEditExecutable": false,
       "target": [
         {
           "target": "portable",
