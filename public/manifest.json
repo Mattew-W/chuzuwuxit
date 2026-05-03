@@ -1,0 +1,22 @@
+{
+  "name": "收租管理系统",
+  "short_name": "收租",
+  "description": "出租屋收租管理工具",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f5f3f0",
+  "theme_color": "#e86a3a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

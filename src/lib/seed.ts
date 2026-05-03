@@ -1,0 +1,25 @@
+import type { Room } from '../types'
+
+export const seedRooms: Room[] = [
+  { id:'201',name:'201',rent:320,deposit:300,elecNow:7218,elecLast:7181,waterNow:319,waterLast:318,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'202',name:'202',rent:0,deposit:0,elecNow:7525,elecLast:7525,waterNow:689,waterLast:689,hygiene:5,network:0,remarks:'',status:'vacant',moveInDate:'',tenantNote:'' },
+  { id:'203',name:'203',rent:320,deposit:320,elecNow:7043,elecLast:6954,waterNow:418,waterLast:415,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'204',name:'204',rent:0,deposit:400,elecNow:9469,elecLast:9469,waterNow:1565,waterLast:1565,hygiene:5,network:0,remarks:'2025.4.21租',status:'active',moveInDate:'',tenantNote:'押金400' },
+  { id:'205',name:'205',rent:380,deposit:380,elecNow:932,elecLast:916,waterNow:849,waterLast:848,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'门禁40' },
+  { id:'206',name:'206',rent:430,deposit:430,elecNow:5384,elecLast:5293,waterNow:126,waterLast:123,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'207',name:'207',rent:0,deposit:0,elecNow:7541,elecLast:7541,waterNow:791,waterLast:791,hygiene:5,network:0,remarks:'2023.11退',status:'vacant',moveInDate:'',tenantNote:'' },
+  { id:'301',name:'301',rent:300,deposit:350,elecNow:5667,elecLast:5651,waterNow:412,waterLast:411,hygiene:0,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'302-303',name:'302-303',rent:450,deposit:450,elecNow:8395,elecLast:8337,waterNow:448,waterLast:445,hygiene:5,network:0,remarks:'套房',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'304',name:'304',rent:450,deposit:450,elecNow:8140,elecLast:8020,waterNow:1001,waterLast:996,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'305',name:'305',rent:0,deposit:0,elecNow:3933,elecLast:3933,waterNow:812,waterLast:812,hygiene:5,network:0,remarks:'2025.9退',status:'vacant',moveInDate:'',tenantNote:'' },
+  { id:'306',name:'306',rent:400,deposit:400,elecNow:6386,elecLast:6342,waterNow:975,waterLast:973,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'307',name:'307',rent:330,deposit:100,elecNow:2685,elecLast:2454,waterNow:2007,waterLast:1997,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'401',name:'401',rent:350,deposit:350,elecNow:9795,elecLast:9745,waterNow:374,waterLast:372,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'402',name:'402',rent:450,deposit:450,elecNow:5588,elecLast:5517,waterNow:784,waterLast:782,hygiene:0,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'404',name:'404',rent:0,deposit:0,elecNow:2740,elecLast:2740,waterNow:864,waterLast:863,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'405',name:'405',rent:430,deposit:450,elecNow:699,elecLast:597,waterNow:298,waterLast:291,hygiene:5,network:0,remarks:'从207转',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'406',name:'406',rent:450,deposit:350,elecNow:6581,elecLast:6473,waterNow:34,waterLast:32,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'407',name:'407',rent:480,deposit:480,elecNow:9068,elecLast:8987,waterNow:899,waterLast:898,hygiene:5,network:0,remarks:'',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'101铺',name:'101铺',rent:1100,deposit:24000,elecNow:16423,elecLast:16386,waterNow:28,waterLast:26,hygiene:0,network:0,remarks:'铺位',status:'active',moveInDate:'',tenantNote:'' },
+  { id:'102铺',name:'102铺',rent:1100,deposit:1000,elecNow:1331,elecLast:997,waterNow:1033,waterLast:1022,hygiene:0,network:0,remarks:'铺位',status:'active',moveInDate:'',tenantNote:'' },
+]
