@@ -4,3 +4,8 @@ release/
 *.exe
 .DS_Store
 Thumbs.db
+
+# 隐私数据
+src/lib/seed.ts
+需求文档_收租管理系统.md
+.workbuddy/

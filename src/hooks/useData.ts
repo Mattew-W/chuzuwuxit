@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from 'react'
 import type { Room, AppSettings } from '../types'
 import { getRooms, bulkSaveRooms, getSettings, saveSettings as dbSaveSettings, getSnapshot, saveSnapshot } from '../lib/db'
 import { calcMonthTotal, carryOverRooms, calcAllRooms } from '../lib/calculator'
-import { seedRooms } from '../lib/seed'
 import { useMemo } from 'react'
 
 export function useData() {
@@ -24,11 +23,6 @@ export function useData() {
         const s = await getSettings()
         setSettings(s)
         let r = await getRooms()
-        // 首次使用，自动填入示例数据
-        if (r.length === 0) {
-          r = seedRooms
-          await bulkSaveRooms(r)
-        }
         setRooms(r)
       } finally {
         setLoading(false)
